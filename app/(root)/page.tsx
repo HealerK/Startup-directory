@@ -3,7 +3,6 @@ import StartupCard from "@/components/StartupCard";
 import { STARTUPS_QUERY } from "@/sanity/lib/queries";
 import { Author, Startup } from "@/sanity.types";
 import { sanityFetch, SanityLive } from "@/sanity/lib/live";
-import { auth } from "@/auth";
 
 export type StartupCardType = Omit<Startup, "author"> & { author?: Author };
 
@@ -15,8 +14,6 @@ export default async function Home({
   const query = (await searchParams).query;
   const params = { search: query || null };
   const { data: posts } = await sanityFetch({ query: STARTUPS_QUERY, params });
-
-  const session = await auth();
 
   return (
     <>

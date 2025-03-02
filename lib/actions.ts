@@ -6,7 +6,7 @@ import slugify from "slugify";
 import { writeClient } from "@/sanity/lib/write-client";
 
 export const createPitch = async (
-  status: unknown,
+  state: any,
   form: FormData,
   pitch: string
 ) => {
@@ -18,9 +18,7 @@ export const createPitch = async (
       status: "ERROR",
     });
 
-  const formData = Object.fromEntries(
-    Array.from(form).filter(([key]) => key !== "pitch")
-  );
+  const formData = Object.fromEntries(form.entries());
 
   const { title, description, category, link } = formData;
 

@@ -28,7 +28,7 @@ const StartupCard = ({ post }: { post: StartupCardType }) => {
     <li className="startup-card group">
       <div className="flex-between">
         <p className="startup-card-date">
-          {formatDate(post._createdAt?.toString() || new Date().toISOString())}
+          {formatDate(_createdAt?.toString() || new Date().toISOString())}
         </p>
         <div className="flex gap-1.5">
           <EyeIcon className="size-6 text-primary" />
@@ -56,7 +56,14 @@ const StartupCard = ({ post }: { post: StartupCardType }) => {
       </div>
       <Link href={`/startup/${_id}`}>
         <p className="startup-card-desc line-clamp-2">{description}</p>
-        <img src={image} alt="wall-e" className="startup-card-img mt-3" />
+        <Image
+          src={image || "/placeholder-user.png"}
+          alt="wall-e"
+          width={300}
+          height={200}
+          className="startup-card-img mt-3"
+          priority
+        />
       </Link>
       <div className="flex-between gap-3 mt-5">
         <Link href={`/?query=${category?.toLowerCase() ?? "all"}`}>
