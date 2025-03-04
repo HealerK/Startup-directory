@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "SANITY_TS_CONFIG=tsconfig.sanity.json sanity build && next build",
+    "build": "esbuild sanity.config.ts --bundle --format=cjs --platform=node --outfile=sanity.config.js",
     "start": "next start",
     "lint": "next lint",
     "predev": "npm run typegen",
@@ -48,8 +48,6 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
-    "@sanity/cli": "^3.78.0",
-    "@sanity/codegen": "^3.78.0",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
