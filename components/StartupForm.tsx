@@ -11,7 +11,7 @@ import { Button } from "./ui/button";
 import { Send } from "lucide-react";
 import { createPitch } from "@/lib/actions";
 import { z } from "zod";
-import { useActionState } from "react"; // Ensure this import is correct
+import { useActionState } from "react";
 
 const StartupForm = () => {
   const [errors, setErrors] = useState<Record<string, string>>({});
@@ -76,6 +76,7 @@ const StartupForm = () => {
     error: "",
     status: "INITIAL",
   });
+  console.log(state);
 
   return (
     <form action={formAction} className="startup-form">
