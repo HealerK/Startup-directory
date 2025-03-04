@@ -1,6 +1,6 @@
-import { createClient } from 'next-sanity'
+import { createClient } from "next-sanity";
 
-import { apiVersion, dataset, projectId, token } from '../env'
+import { dataset, projectId, token } from "../env";
 
 export const writeClient = createClient({
   projectId,
@@ -8,8 +8,8 @@ export const writeClient = createClient({
   apiVersion: "vX",
   useCdn: false,
   token,
-})
+});
 
 if (!writeClient.config().token) {
-  throw new Error('Write token not found. Check your environment variables.')
+  throw new Error("Write token not found. Check your environment variables.");
 }
