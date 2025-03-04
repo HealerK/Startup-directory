@@ -4,12 +4,12 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "esbuild sanity.config.ts --bundle --format=cjs --platform=node --outfile=sanity.config.js",
+    "build": "esbuild sanity.config.ts --bundle --format=cjs --platform=node --external:lucide-react --outfile=sanity.config.js",
     "start": "next start",
     "lint": "next lint",
     "predev": "npm run typegen",
     "prebuild": "npm run typegen",
-    "typegen": "sanity schema extract --path=./sanity/extract.json && sanity typegen generate"
+    "typegen": "sanity schema extract --path=./sanity/extract.json && sanity typegen generate && next build"
   },
   "overrides": {
     "react": "$react",
